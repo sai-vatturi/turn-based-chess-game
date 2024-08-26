@@ -33,7 +33,20 @@ function initializeCharacters(player) {
     }
     return characters;
 }
+function initializeBoard() {
+    let board = Array(5).fill().map(() => Array(5).fill(null));
+    // Example setup: adjust according to your game rules
+    board[0][0] = { type: 'Pawn', player: 'A' };
+    board[0][1] = { type: 'Hero1', player: 'A' };
+    board[0][2] = { type: 'Hero2', player: 'A' };
+    board[4][0] = { type: 'Pawn', player: 'B' };
+    board[4][1] = { type: 'Hero1', player: 'B' };
+    board[4][2] = { type: 'Hero2', player: 'B' };
+    return board;
+}
 
+// Use this function when setting up a new game
+gameStates[gameId].board = initializeBoard();
 function initializeGame() {
     gameState.board = Array(5).fill().map(() => Array(5).fill(null));
     gameState.players.player1.characters = initializeCharacters('player1');
